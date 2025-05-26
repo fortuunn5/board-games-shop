@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-table-board-game" author="fortuunn5">
+        <sql>
+            CREATE TABLE board_game
+            (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR NOT NULL,
+                description VARCHAR NOT NULL,
+                price FLOAT NOT NULL,
+                min_players INTEGER NOT NULL,
+                max_players INTEGER NOT NULL,
+                min_time INTEGER NOT NULL,
+                max_time INTEGER NOT NULL,
+                age INTEGER NOT NULL CHECK (age > 0 AND 100 > age)
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
